@@ -2,11 +2,9 @@ import { useState, useEffect } from 'react';
 import { 
   Github, 
   Linkedin, 
-  Mail, 
-  Terminal, 
+  Mail,  
   Dna, 
   Database, 
-  Cpu, 
   ExternalLink, 
   Menu, 
   X, 
