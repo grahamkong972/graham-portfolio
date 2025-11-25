@@ -17,7 +17,8 @@ import {
   Globe,
   Server,
   Trophy,
-  Wrench
+  Wrench,
+  FlaskConical
 } from 'lucide-react';
 
 export default function App() {
@@ -46,19 +47,16 @@ export default function App() {
   const experiences = [
     {
       team: "Barker Redbacks (FRC 4613)",
-      role: "Electrical Captain (2022-2023), Team Member (2022-2024)",
+      role: "Electrical Captain (2023-24) | Electrical Lead (2022-23)",
       duration: "2022 - 2024",
       description: "Led electrical systems for a high-performance FRC robot. Managed wiring, sensor integration, and power distribution.",
       awards: [
-        "Regional Winners (2022, 2023, 2024)",
+        "Regional Winners (2024)",
         "Worlds Championship Archimedes Division Winners (2024)",
-        "Einstein Semi-Finalist (2024)",
-        "Worlds Championship Daly Division Finalists (2023)",
-        "Autonomous Award (2022)",
-        "Hawaii Regional Finalists (2023)"
+        "Einstein Semi-Finalist (2024)"
       ],
       icon: <Zap className="w-6 h-6 text-yellow-400" />,
-      color: "border-red-500/50"
+      color: "border-yellow-500/50"
     },
     {
       team: "Barker Redbacks (FTC 11146)",
@@ -66,9 +64,9 @@ export default function App() {
       duration: "2023 - 2024",
       description: "Contributed to electrical subsystems and reliability.",
       awards: [
-        "Australia Champs Winning Alliance & Design Award (2024)",
+        "Aus Champs Winning Alliance & Design Award (2024)",
         "World Championships Qualification (2023 & 2024)",
-        "Australia Champs Design Award (2023)"
+        "Aus Champs Design Award (2023)"
       ],
       icon: <Cpu className="w-6 h-6 text-red-400" />,
       color: "border-red-500/50"
@@ -79,7 +77,7 @@ export default function App() {
       duration: "2022 - 2023",
       description: "Designed a custom intake mechanism using SolidWorks, optimizing for intake speed and reliability. Integrated mechanical assemblies with electrical control systems.",
       awards: [
-        "Australia Champs Winning Alliance (2022)",
+        "Aus Champs Winning Alliance (2022)",
         "Motivate Award (2022)"
       ],
       icon: <Wrench className="w-6 h-6 text-yellow-300" />,
@@ -93,6 +91,18 @@ export default function App() {
       awards: [],
       icon: <Code2 className="w-6 h-6 text-orange-400" />,
       color: "border-orange-500/50"
+    }
+  ];
+
+  const research = [
+    {
+      title: "Moisture Effects on 3D Printed Composites",
+      event: "HSC Science Extension Research 2024",
+      description: "Investigated the hygroscopic degradation of 3D printed PLA, Nylon, and HIPS composites. Conducted standardized ASTM D638 tensile testing and statistical analysis to quantify the relationship between moisture content and material strength, revealing significant degradation in Nylon.",
+      tags: ["Material Science", "3D Printing", "Tensile Testing", "Research"],
+      icon: <FlaskConical className="w-6 h-6 text-pink-400" />,
+      color: "from-pink-500 to-rose-400",
+      link: "https://issuu.com/barkercollege/docs/2024_science_journal"
     }
   ];
 
@@ -147,7 +157,7 @@ export default function App() {
 
           {/* Desktop Nav */}
           <div className="hidden md:flex space-x-8 items-center">
-            {['About', 'Projects', 'Experience', 'Contact'].map((item) => (
+            {['About', 'Projects', 'Research', 'Experience', 'Contact'].map((item) => (
               <button
                 key={item}
                 onClick={() => scrollToSection(item.toLowerCase())}
@@ -172,7 +182,7 @@ export default function App() {
         {/* Mobile Nav */}
         {isMenuOpen && (
           <div className="absolute top-full left-0 w-full bg-slate-900 border-b border-slate-800 p-6 flex flex-col space-y-4 md:hidden">
-            {['About', 'Projects', 'Experience', 'Contact'].map((item) => (
+            {['About', 'Projects', 'Research', 'Experience', 'Contact'].map((item) => (
               <button
                 key={item}
                 onClick={() => scrollToSection(item.toLowerCase())}
@@ -333,6 +343,70 @@ export default function App() {
                       className="inline-flex items-center text-sm font-semibold text-teal-400 hover:text-teal-300 transition-colors"
                     >
                       View Project <ExternalLink className="w-3 h-3 ml-1" />
+                    </a>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Research Section */}
+      <section id="research" className="py-24 bg-slate-900/30">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Academic Research</h2>
+            <div className="h-1 w-20 bg-gradient-to-r from-pink-400 to-rose-500 rounded-full"></div>
+            <p className="mt-4 text-slate-400 max-w-2xl">
+              Independent scientific research focusing on material properties and data analysis.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {research.map((item, index) => (
+              <div key={index} className="group relative bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden hover:border-slate-600 transition-all duration-300 hover:-translate-y-1">
+                <div className={`h-1 w-full bg-gradient-to-r ${item.color}`}></div>
+                <div className="p-8">
+                  <div className="flex justify-between items-start mb-4">
+                    <div className="p-3 bg-slate-800 rounded-lg">
+                      {item.icon}
+                    </div>
+                    {item.link && (
+                      <a href={item.link} target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-white transition-colors">
+                        <ExternalLink className="w-5 h-5" />
+                      </a>
+                    )}
+                  </div>
+
+                  <div className="mb-2">
+                    <span className="text-xs font-semibold tracking-wider uppercase text-pink-400">{item.event}</span>
+                  </div>
+                  
+                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-pink-400 transition-colors">
+                    {item.title}
+                  </h3>
+                  
+                  <p className="text-slate-400 mb-6 leading-relaxed text-sm">
+                    {item.description}
+                  </p>
+
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {item.tags.map((tag, tagIdx) => (
+                      <span key={tagIdx} className="px-3 py-1 bg-slate-800 text-slate-300 text-xs rounded-full border border-slate-700">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  {item.link && (
+                    <a 
+                      href={item.link} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center text-sm font-semibold text-pink-400 hover:text-pink-300 transition-colors"
+                    >
+                      Read Paper <ExternalLink className="w-3 h-3 ml-1" />
                     </a>
                   )}
                 </div>
