@@ -13,7 +13,10 @@ import {
   ChevronDown,
   Code2,
   Award,
-  BookOpen
+  BookOpen,
+  Zap,
+  Globe,
+  Server
 } from 'lucide-react';
 
 export default function App() {
@@ -30,7 +33,6 @@ export default function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Fixed: Added type 'string' to id parameter
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -42,36 +44,40 @@ export default function App() {
 
   const projects = [
     {
-      title: "Sharks From Space",
-      event: "NASA Space Apps Challenge",
-      description: "Developed a tracking interface leveraging satellite data to monitor shark migration patterns. Utilized geospatial analysis to predict movements and aid in marine conservation efforts.",
-      tags: ["Data Science", "API Integration", "Geospatial Analysis"],
-      icon: <Dna className="w-6 h-6 text-teal-400" />,
-      color: "from-blue-500 to-teal-400"
-    },
-    {
-      title: "AI Data Centers",
-      event: "GovHack",
-      description: "Designed a conceptual optimization engine for data centers. The project focused on reducing energy consumption by using AI predictive models to manage cooling systems and server loads dynamically.",
-      tags: ["AI/ML Concepts", "Sustainability", "Data Visualization"],
+      title: "AI-SITE: Strategic Data Centers",
+      event: "GovHack 2024 - Team Grid Gurus",
+      description: "A robust scoring system and analytical framework identifying optimal locations for data centres across Australia. We integrated Principal Component Analysis (PCA) to combine connectivity, energy costs, climate risk, and population access into a single suitability metric.",
+      tags: ["R / Shiny", "PCA Analysis", "Geospatial Data", "Infrastructure Planning"],
       icon: <Database className="w-6 h-6 text-purple-400" />,
-      color: "from-purple-500 to-indigo-400"
+      color: "from-purple-500 to-indigo-400",
+      link: "https://grahamkong972.shinyapps.io/govhackweb/"
     },
     {
-      title: "Toohak",
-      event: "COMP1531 Project",
-      description: "A robust backend implementation of a quiz platform (Kahoot clone). Built with Python and Flask, focusing on rigorous testing, continuous integration, and collaborative software engineering practices.",
-      tags: ["Python", "Flask", "Pytest", "Team Collaboration"],
-      icon: <Terminal className="w-6 h-6 text-orange-400" />,
-      color: "from-orange-500 to-red-400"
+      title: "Sharks From Space",
+      event: "NASA Space Apps 2025 - Team Baby Sharks",
+      description: "Created a mathematical framework to track top predators using NASA satellite data. The project suggests a new tag model to measure shark location and feeding habits, transmitting real-time data to predict foraging habitats and aid marine conservation.",
+      tags: ["R / Shiny", "Marine Conservation", "NASA Data", "Predictive Modeling"],
+      icon: <Globe className="w-6 h-6 text-blue-400" />,
+      color: "from-blue-500 to-cyan-400",
+      link: "https://grahamkong972.shinyapps.io/NASASpaceChallenge/"
+    },
+    {
+      title: "Toohak Backend",
+      event: "COMP1531 Major Project",
+      description: "Built a full-stack compliant backend for a Kahoot-like quiz platform. Migrated codebase from JavaScript to TypeScript, implemented robust user session management, secure password hashing, and extensive black-box testing with Jest. Managed CI/CD pipelines via GitLab.",
+      tags: ["TypeScript", "Express.js", "Jest", "CI/CD", "Auth & Sessions"],
+      icon: <Server className="w-6 h-6 text-orange-400" />,
+      color: "from-orange-500 to-red-400",
+      link: null // Private repo usually
     },
     {
       title: "Pokemon Showdown",
       event: "Software Major Project",
       description: "A comprehensive battle simulator recreating the core mechanics of Pokemon. Implemented complex turn-based logic, damage calculation algorithms, and an intuitive user interface.",
       tags: ["Game Logic", "OOP", "Algorithm Design"],
-      icon: <Cpu className="w-6 h-6 text-yellow-400" />,
-      color: "from-yellow-500 to-green-400"
+      icon: <Zap className="w-6 h-6 text-yellow-400" />,
+      color: "from-yellow-500 to-green-400",
+      link: null
     }
   ];
 
@@ -91,7 +97,6 @@ export default function App() {
               <button
                 key={item}
                 onClick={() => scrollToSection(item.toLowerCase())}
-                // Fixed: Used activeSection here to fix unused variable error
                 className={`text-sm font-medium transition-colors ${
                   activeSection === item.toLowerCase() ? 'text-teal-400' : 'text-slate-200 hover:text-teal-400'
                 }`}
@@ -156,13 +161,13 @@ export default function App() {
             </p>
 
             <div className="flex space-x-4 pt-4">
-              <a href="#" className="p-3 bg-slate-800 hover:bg-slate-700 rounded-lg text-slate-300 hover:text-white transition-all">
+              <a href="https://github.com/grahamkong972" target="_blank" rel="noopener noreferrer" className="p-3 bg-slate-800 hover:bg-slate-700 rounded-lg text-slate-300 hover:text-white transition-all">
                 <Github className="w-6 h-6" />
               </a>
-              <a href="#" className="p-3 bg-slate-800 hover:bg-slate-700 rounded-lg text-slate-300 hover:text-white transition-all">
+              <a href="https://www.linkedin.com/in/graham-kong-a8a175278/" target="_blank" rel="noopener noreferrer" className="p-3 bg-slate-800 hover:bg-slate-700 rounded-lg text-slate-300 hover:text-white transition-all">
                 <Linkedin className="w-6 h-6" />
               </a>
-              <a href="mailto:contact@grahamkong.com" className="p-3 bg-slate-800 hover:bg-slate-700 rounded-lg text-slate-300 hover:text-white transition-all">
+              <a href="mailto:grahamkong21006@gmail.com" className="p-3 bg-slate-800 hover:bg-slate-700 rounded-lg text-slate-300 hover:text-white transition-all">
                 <Mail className="w-6 h-6" />
               </a>
             </div>
@@ -239,9 +244,11 @@ export default function App() {
                     <div className="p-3 bg-slate-800 rounded-lg">
                       {project.icon}
                     </div>
-                    <a href="#" className="text-slate-500 hover:text-white transition-colors">
-                      <ExternalLink className="w-5 h-5" />
-                    </a>
+                    {project.link && (
+                      <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-white transition-colors">
+                        <ExternalLink className="w-5 h-5" />
+                      </a>
+                    )}
                   </div>
 
                   <div className="mb-2">
@@ -256,13 +263,24 @@ export default function App() {
                     {project.description}
                   </p>
 
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-2 mb-6">
                     {project.tags.map((tag, tagIdx) => (
                       <span key={tagIdx} className="px-3 py-1 bg-slate-800 text-slate-300 text-xs rounded-full border border-slate-700">
                         {tag}
                       </span>
                     ))}
                   </div>
+
+                  {project.link && (
+                    <a 
+                      href={project.link} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center text-sm font-semibold text-teal-400 hover:text-teal-300 transition-colors"
+                    >
+                      View Project <ExternalLink className="w-3 h-3 ml-1" />
+                    </a>
+                  )}
                 </div>
               </div>
             ))}
@@ -279,7 +297,7 @@ export default function App() {
           </p>
           
           <a 
-            href="mailto:contact@grahamkong.com" 
+            href="mailto:grahamkong21006@gmail.com" 
             className="inline-flex items-center space-x-3 px-8 py-4 bg-teal-500 hover:bg-teal-600 text-slate-950 font-bold rounded-lg transition-all transform hover:scale-105"
           >
             <Mail className="w-5 h-5" />
@@ -289,9 +307,9 @@ export default function App() {
           <div className="mt-16 pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center text-slate-500 text-sm">
             <p>© {new Date().getFullYear()} Graham Kong. All rights reserved.</p>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <a href="#" className="hover:text-teal-400 transition-colors">GitHub</a>
-              <a href="#" className="hover:text-teal-400 transition-colors">LinkedIn</a>
-              <a href="#" className="hover:text-teal-400 transition-colors">Twitter</a>
+              <a href="https://github.com/grahamkong972" target="_blank" rel="noopener noreferrer" className="hover:text-teal-400 transition-colors">GitHub</a>
+              <a href="https://www.linkedin.com/in/graham-kong-a8a175278/" target="_blank" rel="noopener noreferrer" className="hover:text-teal-400 transition-colors">LinkedIn</a>
+              <a href="mailto:grahamkong21006@gmail.com" className="hover:text-teal-400 transition-colors">Email</a>
             </div>
           </div>
         </div>
