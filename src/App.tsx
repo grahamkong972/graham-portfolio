@@ -2,9 +2,10 @@ import { useState, useEffect } from 'react';
 import { 
   Github, 
   Linkedin, 
-  Mail,  
+  Mail, 
   Dna, 
   Database, 
+  Cpu, 
   ExternalLink, 
   Menu, 
   X, 
@@ -14,7 +15,9 @@ import {
   BookOpen,
   Zap,
   Globe,
-  Server
+  Server,
+  Trophy,
+  Wrench
 } from 'lucide-react';
 
 export default function App() {
@@ -39,6 +42,56 @@ export default function App() {
       setIsMenuOpen(false);
     }
   };
+
+  const experiences = [
+    {
+      team: "Barker Redbacks (FRC 4613)",
+      role: "Electrical Captain (2023-24) | Electrical Lead (2022-23)",
+      duration: "2022 - 2024",
+      description: "Led electrical systems for a high-performance FRC robot. Managed wiring, sensor integration, and power distribution.",
+      awards: [
+        "Regional Winners (2024)",
+        "Worlds Championship Archimedes Division Winners (2024)",
+        "Einstein Semi-Finalist (2024)"
+      ],
+      icon: <Zap className="w-6 h-6 text-yellow-400" />,
+      color: "border-yellow-500/50"
+    },
+    {
+      team: "Barker Redbacks (FTC 11146)",
+      role: "Electrical Member",
+      duration: "2023 - 2024",
+      description: "Contributed to electrical subsystems and reliability.",
+      awards: [
+        "Aus Champs Winning Alliance & Design Award (2024)",
+        "World Championships Qualification (2023 & 2024)",
+        "Aus Champs Design Award (2023)"
+      ],
+      icon: <Cpu className="w-6 h-6 text-red-400" />,
+      color: "border-red-500/50"
+    },
+    {
+      team: "Barker Yellowbacks (FTC 11258)",
+      role: "Mechanical & Electrical Member",
+      duration: "2022 - 2023",
+      description: "Designed a custom intake mechanism using SolidWorks, optimizing for intake speed and reliability. Integrated mechanical assemblies with electrical control systems.",
+      awards: [
+        "Aus Champs Winning Alliance (2022)",
+        "Motivate Award (2022)"
+      ],
+      icon: <Wrench className="w-6 h-6 text-yellow-300" />,
+      color: "border-yellow-300/50"
+    },
+    {
+      team: "Barker Orangebacks (FTC 11143)",
+      role: "Mechanical Member",
+      duration: "2021 - 2022",
+      description: "Focused on mechanical assembly, chassis construction, and maintenance during competitions.",
+      awards: [],
+      icon: <Code2 className="w-6 h-6 text-orange-400" />,
+      color: "border-orange-500/50"
+    }
+  ];
 
   const projects = [
     {
@@ -70,7 +123,7 @@ export default function App() {
     },
     {
       title: "Pokemon Showdown (Graham's Edition)",
-      event: "Software Design and Development Major Project",
+      event: "Software Major Project",
       description: "Developed a 2D battle simulator in Unity (C#). Engineered a custom Stack Machine architecture to manage complex battle states and turn logic, replacing inefficient legacy code. Features a fully functional Team Builder with import/export (text file) capabilities, accurate stat/damage calculations, and type effectiveness logic.",
       tags: ["Unity", "C#", "State Pattern", "Game Development"],
       icon: <Zap className="w-6 h-6 text-yellow-400" />,
@@ -91,7 +144,7 @@ export default function App() {
 
           {/* Desktop Nav */}
           <div className="hidden md:flex space-x-8 items-center">
-            {['About', 'Projects', 'Contact'].map((item) => (
+            {['About', 'Projects', 'Experience', 'Contact'].map((item) => (
               <button
                 key={item}
                 onClick={() => scrollToSection(item.toLowerCase())}
@@ -116,7 +169,7 @@ export default function App() {
         {/* Mobile Nav */}
         {isMenuOpen && (
           <div className="absolute top-full left-0 w-full bg-slate-900 border-b border-slate-800 p-6 flex flex-col space-y-4 md:hidden">
-            {['About', 'Projects', 'Contact'].map((item) => (
+            {['About', 'Projects', 'Experience', 'Contact'].map((item) => (
               <button
                 key={item}
                 onClick={() => scrollToSection(item.toLowerCase())}
@@ -278,6 +331,57 @@ export default function App() {
                     >
                       View Project <ExternalLink className="w-3 h-3 ml-1" />
                     </a>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Experience Section */}
+      <section id="experience" className="py-24 bg-slate-900/30">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Robotics Experience & Awards</h2>
+            <div className="h-1 w-20 bg-gradient-to-r from-yellow-400 to-red-500 rounded-full"></div>
+            <p className="mt-4 text-slate-400 max-w-2xl">
+              Competitive robotics journey across FRC and FTC competitions, focusing on electrical systems and mechanical design.
+            </p>
+          </div>
+
+          <div className="space-y-8">
+            {experiences.map((exp, index) => (
+              <div key={index} className={`flex flex-col md:flex-row gap-6 p-6 bg-slate-900 border rounded-xl hover:bg-slate-800/50 transition-all ${exp.color}`}>
+                <div className="md:w-1/4 flex flex-col justify-start">
+                  <div className="flex items-center space-x-3 mb-2">
+                    <div className="p-2 bg-slate-800 rounded-lg">
+                      {exp.icon}
+                    </div>
+                    <span className="font-bold text-teal-400 text-sm">{exp.duration}</span>
+                  </div>
+                  <h3 className="text-lg font-bold text-white">{exp.team}</h3>
+                  <div className="text-slate-400 text-sm mt-1">{exp.role}</div>
+                </div>
+                
+                <div className="md:w-3/4">
+                  <p className="text-slate-300 mb-4 leading-relaxed">
+                    {exp.description}
+                  </p>
+                  
+                  {exp.awards.length > 0 && (
+                    <div className="space-y-2">
+                      <div className="text-xs font-semibold text-slate-500 uppercase tracking-wider flex items-center">
+                        <Trophy className="w-3 h-3 mr-1" /> Awards & Achievements
+                      </div>
+                      <div className="flex flex-wrap gap-2">
+                        {exp.awards.map((award, i) => (
+                          <span key={i} className="inline-flex items-center px-3 py-1 rounded-md bg-yellow-500/10 text-yellow-400 text-xs border border-yellow-500/20">
+                            {award}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
                   )}
                 </div>
               </div>
