@@ -3,8 +3,10 @@ import {
   Github, 
   Linkedin, 
   Mail, 
+  Terminal, 
   Dna, 
   Database, 
+  Cpu, 
   ExternalLink, 
   Menu, 
   X, 
@@ -69,10 +71,10 @@ export default function App() {
       link: null // Private repo usually
     },
     {
-      title: "Pokemon Showdown",
-      event: "Software Major Project",
-      description: "A comprehensive battle simulator recreating the core mechanics of Pokemon. Implemented complex turn-based logic, damage calculation algorithms, and an intuitive user interface.",
-      tags: ["Game Logic", "OOP", "Algorithm Design"],
+      title: "Pokemon Showdown (Graham's Edition)",
+      event: "Software Design and Development Major Project",
+      description: "Developed a 2D battle simulator in Unity (C#). Engineered a custom Stack Machine architecture to manage complex battle states and turn logic, replacing inefficient legacy code. Features a fully functional Team Builder with import/export (text file) capabilities, accurate stat/damage calculations, and type effectiveness logic.",
+      tags: ["Unity", "C#", "State Pattern", "Game Development"],
       icon: <Zap className="w-6 h-6 text-yellow-400" />,
       color: "from-yellow-500 to-green-400",
       link: null
