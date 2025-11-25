@@ -46,16 +46,19 @@ export default function App() {
   const experiences = [
     {
       team: "Barker Redbacks (FRC 4613)",
-      role: "Electrical Captain (2023-24) | Electrical Lead (2022-23)",
+      role: "Electrical Captain (2022-2023), Team Member (2022-2024)",
       duration: "2022 - 2024",
       description: "Led electrical systems for a high-performance FRC robot. Managed wiring, sensor integration, and power distribution.",
       awards: [
-        "Regional Winners (2024)",
+        "Regional Winners (2022, 2023, 2024)",
         "Worlds Championship Archimedes Division Winners (2024)",
-        "Einstein Semi-Finalist (2024)"
+        "Einstein Semi-Finalist (2024)",
+        "Worlds Championship Daly Division Finalists (2023)",
+        "Autonomous Award (2022)",
+        "Hawaii Regional Finalists (2023)"
       ],
       icon: <Zap className="w-6 h-6 text-yellow-400" />,
-      color: "border-yellow-500/50"
+      color: "border-red-500/50"
     },
     {
       team: "Barker Redbacks (FTC 11146)",
@@ -63,9 +66,9 @@ export default function App() {
       duration: "2023 - 2024",
       description: "Contributed to electrical subsystems and reliability.",
       awards: [
-        "Aus Champs Winning Alliance & Design Award (2024)",
+        "Australia Champs Winning Alliance & Design Award (2024)",
         "World Championships Qualification (2023 & 2024)",
-        "Aus Champs Design Award (2023)"
+        "Australia Champs Design Award (2023)"
       ],
       icon: <Cpu className="w-6 h-6 text-red-400" />,
       color: "border-red-500/50"
@@ -76,7 +79,7 @@ export default function App() {
       duration: "2022 - 2023",
       description: "Designed a custom intake mechanism using SolidWorks, optimizing for intake speed and reliability. Integrated mechanical assemblies with electrical control systems.",
       awards: [
-        "Aus Champs Winning Alliance (2022)",
+        "Australia Champs Winning Alliance (2022)",
         "Motivate Award (2022)"
       ],
       icon: <Wrench className="w-6 h-6 text-yellow-300" />,
