@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { 
   Github, 
   Linkedin, 
@@ -30,7 +30,8 @@ export default function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (id) => {
+  // Fixed: Added type 'string' to id parameter
+  const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -90,7 +91,10 @@ export default function App() {
               <button
                 key={item}
                 onClick={() => scrollToSection(item.toLowerCase())}
-                className="text-sm font-medium hover:text-teal-400 transition-colors"
+                // Fixed: Used activeSection here to fix unused variable error
+                className={`text-sm font-medium transition-colors ${
+                  activeSection === item.toLowerCase() ? 'text-teal-400' : 'text-slate-200 hover:text-teal-400'
+                }`}
               >
                 {item}
               </button>
@@ -113,7 +117,9 @@ export default function App() {
               <button
                 key={item}
                 onClick={() => scrollToSection(item.toLowerCase())}
-                className="text-left text-lg font-medium hover:text-teal-400"
+                className={`text-left text-lg font-medium ${
+                  activeSection === item.toLowerCase() ? 'text-teal-400' : 'text-slate-200 hover:text-teal-400'
+                }`}
               >
                 {item}
               </button>
