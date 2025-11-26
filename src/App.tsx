@@ -111,16 +111,16 @@ export default function App() {
       title: "AI-SITE: Strategic Data Centers",
       event: "GovHack 2024 - Team Grid Gurus",
       description: "A robust scoring system and analytical framework identifying optimal locations for data centres across Australia. We integrated Principal Component Analysis (PCA) to combine connectivity, energy costs, climate risk, and population access into a single suitability metric.",
-      tags: ["R / Shiny", "PCA Analysis", "Geospatial Data", "Infrastructure Planning"],
+      tags: ["Event Finalist", "R / Shiny", "PCA Analysis", "Geospatial Data", "Infrastructure Planning"],
       icon: <Database className="w-6 h-6 text-purple-400" />,
       color: "from-purple-500 to-indigo-400",
       link: "https://grahamkong972.shinyapps.io/govhackweb/"
     },
     {
       title: "Sharks From Space",
-      event: "NASA Space Apps 2025 - Team Baby Sharks",
+      event: "NASA Space Apps 2025 - Local Winner (Team Baby Sharks)",
       description: "Created a mathematical framework to track top predators using NASA satellite data. The project suggests a new tag model to measure shark location and feeding habits, transmitting real-time data to predict foraging habitats and aid marine conservation.",
-      tags: ["R / Shiny", "Marine Conservation", "NASA Data", "Predictive Modeling"],
+      tags: ["Local Winner", "R / Shiny", "Marine Conservation", "NASA Data", "Predictive Modeling"],
       icon: <Globe className="w-6 h-6 text-blue-400" />,
       color: "from-blue-500 to-cyan-400",
       link: "https://grahamkong972.shinyapps.io/NASASpaceChallenge/"
