@@ -3,7 +3,6 @@ import {
   Github, 
   Linkedin, 
   Mail, 
-  Terminal, 
   Dna, 
   Database, 
   Cpu, 
