@@ -115,7 +115,7 @@ export default function App() {
       tags: ["React", "Firebase", "Gemini AI", "Tailwind CSS", "EdTech"],
       icon: <Brain className="w-6 h-6 text-indigo-400" />,
       color: "from-indigo-500 to-violet-500",
-      link: null
+      link: https://grahamkongstudy.vercel.app/
     },
     {
       title: "AI-SITE: Strategic Data Centers",
