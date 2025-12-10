@@ -3,6 +3,7 @@ import {
   Github, 
   Linkedin, 
   Mail, 
+  Terminal, 
   Dna, 
   Database, 
   Cpu, 
@@ -18,7 +19,8 @@ import {
   Server,
   Trophy,
   Wrench,
-  FlaskConical
+  FlaskConical,
+  Brain // Added Brain icon for the study app
 } from 'lucide-react';
 
 export default function App() {
@@ -108,10 +110,19 @@ export default function App() {
 
   const projects = [
     {
+      title: "KonDeck: AI Study Platform",
+      event: "Personal Project",
+      description: "Engineered a full-stack educational platform using React and Firebase. Integrated Google Gemini AI to automatically generate flashcards, quizzes, and exams from user notes and PDFs. Features Spaced Repetition System (SRS) algorithms and syllabus coverage auditing.",
+      tags: ["React", "Firebase", "Gemini AI", "Tailwind CSS", "EdTech"],
+      icon: <Brain className="w-6 h-6 text-indigo-400" />,
+      color: "from-indigo-500 to-violet-500",
+      link: null
+    },
+    {
       title: "AI-SITE: Strategic Data Centers",
-      event: "GovHack 2024 - Team Grid Gurus",
+      event: "GovHack 2024 - Challenge Winner (Team Grid Gurus)",
       description: "A robust scoring system and analytical framework identifying optimal locations for data centres across Australia. We integrated Principal Component Analysis (PCA) to combine connectivity, energy costs, climate risk, and population access into a single suitability metric.",
-      tags: ["Event Finalist", "R / Shiny", "PCA Analysis", "Geospatial Data", "Infrastructure Planning"],
+      tags: ["Winner", "R / Shiny", "PCA Analysis", "Geospatial Data"],
       icon: <Database className="w-6 h-6 text-purple-400" />,
       color: "from-purple-500 to-indigo-400",
       link: "https://grahamkong972.shinyapps.io/govhackweb/"
@@ -132,7 +143,7 @@ export default function App() {
       tags: ["TypeScript", "Express.js", "Jest", "CI/CD", "Auth & Sessions"],
       icon: <Server className="w-6 h-6 text-orange-400" />,
       color: "from-orange-500 to-red-400",
-      link: null // Private repo usually
+      link: null
     },
     {
       title: "Pokemon Showdown (Graham's Edition)",
