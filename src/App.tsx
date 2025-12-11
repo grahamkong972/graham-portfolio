@@ -119,7 +119,7 @@ export default function App() {
     },
     {
       title: "AI-SITE: Strategic Data Centers",
-      event: "GovHack 2024 - Challenge Winner (Team Grid Gurus)",
+      event: "GovHack 2025 - Challenge Winner (Team Grid Gurus)",
       description: "A robust scoring system and analytical framework identifying optimal locations for data centres across Australia. We integrated Principal Component Analysis (PCA) to combine connectivity, energy costs, climate risk, and population access into a single suitability metric.",
       tags: ["Winner", "R / Shiny", "PCA Analysis", "Geospatial Data"],
       icon: <Database className="w-6 h-6 text-purple-400" />,
