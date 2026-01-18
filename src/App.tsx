@@ -115,7 +115,7 @@ export default function App() {
       tags: ["React", "Gemini AI", "Firebase", "Vite", "Tailwind CSS"],
       icon: <FlaskConical className="w-6 h-6 text-emerald-400" />,
       color: "from-emerald-500 to-teal-500",
-      link: null
+      link: "https://biscuitstealers.vercel.app/"
     },
     {
       title: "Zenith LifeOS",
@@ -124,7 +124,7 @@ export default function App() {
       tags: ["TypeScript", "React", "shadcn-ui", "Tailwind CSS", "Vite", "Strava & Hevy API"],
       icon: <Cpu className="w-6 h-6 text-blue-400" />,
       color: "from-blue-600 to-indigo-500",
-      link: null
+      link: "https://graham2026.lovable.app/auth"
     },
     {
       title: "KonDeck: AI Study Platform",
