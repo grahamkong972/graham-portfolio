@@ -109,6 +109,24 @@ export default function App() {
 
   const projects = [
     {
+      title: "Biscuit Stealers Intelligence",
+      event: "Lyrathon 2025 - Event Finalist",
+      description: "A high-fidelity technical assessment platform performing Forensic Behavioral Analysis via 'Digital DNA' telemetry. It differentiates between strategic engineering and AI dependency using a friction score and automated archetype clustering.",
+      tags: ["React", "Gemini AI", "Firebase", "Vite", "Tailwind CSS"],
+      icon: <FlaskConical className="w-6 h-6 text-emerald-400" />,
+      color: "from-emerald-500 to-teal-500",
+      link: null
+    },
+    {
+      title: "Zenith LifeOS",
+      event: "Personal Project",
+      description: "A comprehensive personal life operating system designed to centralize management and productivity for my 2026 new years resolution. Engineered with high-performance UI components for a seamless user experience.",
+      tags: ["TypeScript", "React", "shadcn-ui", "Tailwind CSS", "Vite", "Strava & Hevy API"],
+      icon: <Cpu className="w-6 h-6 text-blue-400" />,
+      color: "from-blue-600 to-indigo-500",
+      link: null
+    },
+    {
       title: "KonDeck: AI Study Platform",
       event: "Personal Project",
       description: "Engineered a full-stack educational platform using React and Firebase. Integrated Google Gemini AI to automatically generate flashcards, quizzes, and exams from user notes and PDFs. Features Spaced Repetition System (SRS) algorithms and syllabus coverage auditing.",
