@@ -19,7 +19,10 @@ import {
   Trophy,
   Wrench,
   FlaskConical,
-  Brain // Added Brain icon for the study app
+  Brain, // Added Brain icon for the study app
+  Briefcase,
+  Activity,
+  Microscope
 } from 'lucide-react';
 
 export default function App() {
@@ -44,6 +47,35 @@ export default function App() {
       setIsMenuOpen(false);
     }
   };
+
+  const work = [
+    {
+      company: "Precision Solutions Group",
+      role: "Data Intern",
+      duration: "2026 - Present",
+      points: [
+        "Built a deep learning pipeline to identify school logos in images, using RT-DETR for object detection and DINOv2 foundation-model embeddings for logo matching.",
+        "Fine-tuned RT-DETR on 1,000 labelled images, achieving 82% recall.",
+        "Built SQL pipelines in TimescaleDB/PostgreSQL on Azure to benchmark cybersecurity remediation across daily snapshots.",
+        "Modelled time-to-closure with Kaplan-Meier survival analysis (Python lifelines) and delivered findings to management as Excel PivotChart reports."
+      ],
+      tags: ["PyTorch", "RT-DETR", "DINOv2", "SQL", "TimescaleDB", "Azure", "Survival Analysis"],
+      icon: <Briefcase className="w-6 h-6 text-teal-400" />,
+      color: "border-teal-500/50"
+    },
+    {
+      company: "Barker College",
+      role: "Robotics Coach",
+      duration: "Jan 2025 - Present",
+      points: [
+        "Mentor a selective cohort of 20 Year 5-6 students in a competitive VEX IQ program, coaching robot design, programming and competition strategy.",
+        "Run electrical workshops for FTC and FRC teams."
+      ],
+      tags: ["Mentoring", "VEX IQ", "Robotics"],
+      icon: <Wrench className="w-6 h-6 text-yellow-400" />,
+      color: "border-yellow-500/50"
+    }
+  ];
 
   const experiences = [
     {
@@ -97,6 +129,24 @@ export default function App() {
 
   const research = [
     {
+      title: "Germline Variant Calling on NA12878",
+      event: "BINF3010 Applied Bioinformatics (HD)",
+      description: "Ran an end-to-end germline variant calling workflow on NA12878 whole-genome sequencing data, from read QC and alignment statistics to VCF exploration. Visualised candidate variants in IGV and wrote clinical interpretations of TP53 and BRCA1 variants.",
+      tags: ["NGS", "FastQC", "VCF", "IGV", "Clinical Genomics"],
+      icon: <Dna className="w-6 h-6 text-teal-400" />,
+      color: "from-teal-500 to-emerald-400",
+      link: null
+    },
+    {
+      title: "Sex Differences in Colonic Enterocytes",
+      event: "BINF3010 Applied Bioinformatics (HD)",
+      description: "Analysed 34,772 healthy-donor colonic epithelial cells across 12 donors from the Smillie et al. 2019 colon atlas to identify sex-associated transcriptional differences in enterocytes, using differential expression and gene set enrichment.",
+      tags: ["scRNA-seq", "CELLxGENE", "Differential Expression", "g:Profiler"],
+      icon: <Microscope className="w-6 h-6 text-cyan-400" />,
+      color: "from-cyan-500 to-blue-400",
+      link: null
+    },
+    {
       title: "Moisture Effects on 3D Printed Composites",
       event: "HSC Science Extension Research 2024",
       description: "Investigated the hygroscopic degradation of 3D printed PLA, Nylon, and HIPS composites. Conducted standardized ASTM D638 tensile testing and statistical analysis to quantify the relationship between moisture content and material strength, revealing significant degradation in Nylon.",
@@ -108,6 +158,15 @@ export default function App() {
   ];
 
   const projects = [
+    {
+      title: "Coach",
+      event: "Personal Project",
+      description: "A mobile-first web app that turns my training data into a personalised half marathon coaching plan, tracking training load and adapting sessions across a 14-week block.",
+      tags: ["Web App", "Training Analytics", "Running"],
+      icon: <Activity className="w-6 h-6 text-lime-400" />,
+      color: "from-lime-500 to-emerald-400",
+      link: "https://coach.grahamruns.com"
+    },
     {
       title: "Biscuit Stealers Intelligence",
       event: "Lyrathon 2025 - Event Finalist",
@@ -185,7 +244,7 @@ export default function App() {
 
           {/* Desktop Nav */}
           <div className="hidden md:flex space-x-8 items-center">
-            {['About', 'Projects', 'Research', 'Experience', 'Contact'].map((item) => (
+            {['About', 'Work', 'Projects', 'Research', 'Experience', 'Contact'].map((item) => (
               <button
                 key={item}
                 onClick={() => scrollToSection(item.toLowerCase())}
@@ -210,7 +269,7 @@ export default function App() {
         {/* Mobile Nav */}
         {isMenuOpen && (
           <div className="absolute top-full left-0 w-full bg-slate-900 border-b border-slate-800 p-6 flex flex-col space-y-4 md:hidden">
-            {['About', 'Projects', 'Research', 'Experience', 'Contact'].map((item) => (
+            {['About', 'Work', 'Projects', 'Research', 'Experience', 'Contact'].map((item) => (
               <button
                 key={item}
                 onClick={() => scrollToSection(item.toLowerCase())}
@@ -249,7 +308,7 @@ export default function App() {
             </h1>
             
             <p className="text-lg text-slate-400 max-w-lg leading-relaxed">
-              First-year <span className="text-slate-200 font-medium">Advanced Science (Bioinformatics)</span> & <span className="text-slate-200 font-medium">Computer Science</span> student at UNSW. Bridging the gap between biological data and computational logic.
+              Second-year <span className="text-slate-200 font-medium">Advanced Science (Bioinformatics)</span> & <span className="text-slate-200 font-medium">Computer Science</span> student at UNSW. Bridging the gap between biological data and computational logic.
             </p>
 
             <div className="flex space-x-4 pt-4">
@@ -297,9 +356,9 @@ export default function App() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { label: "Year", value: "1st", icon: <BookOpen className="w-5 h-5 mb-2 text-teal-400" /> },
+              { label: "Year", value: "2nd", icon: <BookOpen className="w-5 h-5 mb-2 text-teal-400" /> },
               { label: "University", value: "UNSW", icon: <Award className="w-5 h-5 mb-2 text-blue-400" /> },
-              { label: "Projects", value: "4+", icon: <Code2 className="w-5 h-5 mb-2 text-purple-400" /> },
+              { label: "Projects", value: "8+", icon: <Code2 className="w-5 h-5 mb-2 text-purple-400" /> },
               { label: "Focus", value: "Bio-Tech", icon: <Dna className="w-5 h-5 mb-2 text-green-400" /> },
             ].map((stat, idx) => (
               <div key={idx} className="p-6 bg-slate-900 border border-slate-800 rounded-xl text-center hover:border-teal-500/50 transition-colors">
@@ -314,8 +373,53 @@ export default function App() {
         </div>
       </section>
 
+      {/* Work Experience Section */}
+      <section id="work" className="py-24 relative">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Work Experience</h2>
+            <div className="h-1 w-20 bg-gradient-to-r from-teal-400 to-blue-500 rounded-full"></div>
+            <p className="mt-4 text-slate-400 max-w-2xl">
+              Applied machine learning, data engineering and mentoring.
+            </p>
+          </div>
+
+          <div className="space-y-8">
+            {work.map((job, index) => (
+              <div key={index} className={`flex flex-col md:flex-row gap-6 p-6 bg-slate-900 border rounded-xl hover:bg-slate-800/50 transition-all ${job.color}`}>
+                <div className="md:w-1/4 flex flex-col justify-start">
+                  <div className="flex items-center space-x-3 mb-2">
+                    <div className="p-2 bg-slate-800 rounded-lg">
+                      {job.icon}
+                    </div>
+                    <span className="font-bold text-teal-400 text-sm">{job.duration}</span>
+                  </div>
+                  <h3 className="text-lg font-bold text-white">{job.company}</h3>
+                  <div className="text-slate-400 text-sm mt-1">{job.role}</div>
+                </div>
+
+                <div className="md:w-3/4">
+                  <ul className="space-y-2 mb-4 list-disc pl-5 text-slate-300 leading-relaxed">
+                    {job.points.map((point, i) => (
+                      <li key={i}>{point}</li>
+                    ))}
+                  </ul>
+                  <div className="flex flex-wrap gap-2">
+                    {job.tags.map((tag, i) => (
+                      <span key={i} className="px-3 py-1 bg-slate-800 text-slate-300 text-xs rounded-full border border-slate-700">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Projects Section */}
-      <section id="projects" className="py-24 relative">
+      <section id="projects" className="py-24 relative bg-slate-900/30">
         <div className="max-w-6xl mx-auto px-6">
           <div className="mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Featured Projects</h2>
@@ -381,13 +485,13 @@ export default function App() {
       </section>
 
       {/* Research Section */}
-      <section id="research" className="py-24 bg-slate-900/30">
+      <section id="research" className="py-24">
         <div className="max-w-6xl mx-auto px-6">
           <div className="mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Academic Research</h2>
             <div className="h-1 w-20 bg-gradient-to-r from-pink-400 to-rose-500 rounded-full"></div>
             <p className="mt-4 text-slate-400 max-w-2xl">
-              Independent scientific research focusing on material properties and data analysis.
+              Genomics and single-cell analysis from coursework, plus independent materials research.
             </p>
           </div>
 
